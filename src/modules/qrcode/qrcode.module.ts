@@ -11,6 +11,7 @@ import { Transaction } from './entities/transaction.entity';
 import { FintavaTransferProcessor } from './fintava-transfer.processor';
 import { FintavaWebhookController } from './fintava-webhook.controller';
 import { FintavaWebhookProcessor } from './fintava-webhook.processor';
+import { QueueConnectionLogger } from 'src/config/queue/queue-connection.logger';
 import { QrcodeController } from './qrcode.controller';
 import { QrcodeService } from './qrcode.service';
 
@@ -24,6 +25,11 @@ import { QrcodeService } from './qrcode.service';
     FintavaModule,
   ],
   controllers: [QrcodeController, FintavaWebhookController],
-  providers: [QrcodeService, FintavaTransferProcessor, FintavaWebhookProcessor],
+  providers: [
+    QrcodeService,
+    FintavaTransferProcessor,
+    FintavaWebhookProcessor,
+    QueueConnectionLogger,
+  ],
 })
 export class QrcodeModule {}

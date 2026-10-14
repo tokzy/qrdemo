@@ -15,15 +15,25 @@ import { QrcodeModule } from './modules/qrcode/qrcode.module';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => {
-        const password = configService.get<string>('REDIS_PASSWORD')?.trim();
+        const host = configService.get<string>('REDIS_HOST')?.trim();
         const username = configService.get<string>('REDIS_USERNAME')?.trim();
+        const password = configService.get<string>('REDIS_PASSWORD')?.trim();
+        const tls =
+          host && host !== 'localhost' && host !== '127.0.0.1'
+            ? { rejectUnauthorized: false }
+            : undefined;
 
         return {
           redis: {
-            host: configService.get<string>('REDIS_HOST') || 'localhost',
-            port: Number(configService.get('REDIS_PORT') || 6379),
+            host,
+            port: Number(configService.get<string>('REDIS_PORT')),
+            family: 4,
+            connectTimeout: 10000,
+            enableReadyCheck: false,
+            maxRetriesPerRequest: null,
             ...(username ? { username } : {}),
             ...(password ? { password } : {}),
+            ...(tls ? { tls } : {}),
           },
         };
       },
