@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transactions</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="rail">
+        <a class="brand" href="/dashboard">Election QR</a>
+        <nav class="nav">
+          <a href="/dashboard">Dashboard</a>
+          <a href="/generate">Generate</a>
+          <a href="/transactions" aria-current="page">Transactions</a>
+        </nav>
+        <div>
+          <h1>History</h1>
+          <p>Search payouts by account name or either reference.</p>
+        </div>
+        <button id="logout" type="button">Log out</button>
+      </aside>
+      <main class="canvas">
+        <form id="search-form" class="filters">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="search" placeholder="Account name" />
+          </div>
+          <div>
+            <label for="reference">Reference</label>
+            <input id="reference" name="reference" type="search" placeholder="Customer or Fintava reference" />
+          </div>
+          <button type="submit">Search</button>
+        </form>
+        <p id="form-error" class="error" role="alert"></p>
+        <div class="section-head">
+          <h2>Transactions</h2>
+          <span id="count">0 records</span>
+        </div>
+        <div id="results" class="table-wrap"></div>
+      </main>
+    </div>
+    <script src="/auth.js"></script>
+    <script src="/transactions.js"></script>
+  </body>
+</html>

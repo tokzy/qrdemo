@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="rail">
+        <a class="brand" href="/dashboard">Election QR</a>
+        <nav class="nav">
+          <a href="/dashboard" aria-current="page">Dashboard</a>
+          <a href="/generate">Generate</a>
+          <a href="/transactions">Transactions</a>
+        </nav>
+        <div>
+          <h1>Dashboard</h1>
+          <p id="welcome">Sign in to manage codes and payouts.</p>
+        </div>
+        <button id="logout" type="button">Log out</button>
+      </aside>
+      <main class="canvas">
+        <div class="choices">
+          <a class="choice" href="/generate">
+            <h2>Generate QR codes</h2>
+            <p>Create a new code for each payout. Every click makes a different link.</p>
+          </a>
+          <a class="choice" href="/transactions">
+            <h2>Transaction history</h2>
+            <p>Review payouts and search by account name or reference.</p>
+          </a>
+        </div>
+      </main>
+    </div>
+    <script src="/auth.js"></script>
+    <script src="/dashboard.js"></script>
+  </body>
+</html>

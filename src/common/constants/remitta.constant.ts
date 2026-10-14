@@ -1,0 +1,13 @@
+export const remitta = {
+  PIN: '199714',
+  CHANNEL: 'API',
+  PAYMENTOPTION: 'CASH',
+  TELCOSID: '3fa62c64-8670-42f4-8e5c-09665fa59606',
+  DISCOSID: '89740341-ec19-4f3a-addd-5c840ecb66b2',
+  CABLE: 'fdc89cb0-6a9b-4468-bd86-b3a0ac521bdc',
+  DSTVID: '2020072933000',
+  GOTVID: '2020072921000',
+  STARTIMESID: '2020072935001',
+  EMAIL: 'lomamfb@gmail.com',
+  PHONE: '09067765719',
+};

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Generate QR code</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="rail">
+        <a class="brand" href="/dashboard">Election QR</a>
+        <nav class="nav">
+          <a href="/dashboard">Dashboard</a>
+          <a href="/generate" aria-current="page">Generate</a>
+          <a href="/transactions">Transactions</a>
+        </nav>
+        <div>
+          <h1>Generate another code.</h1>
+          <p>Every click creates a new QR code with its own registration link.</p>
+        </div>
+        <form id="generate-form">
+          <label for="amount">Amount</label>
+          <input id="amount" name="amount" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="100" required />
+          <button id="generate-button" type="submit">Generate QR code</button>
+          <p id="form-error" class="error" role="alert"></p>
+        </form>
+        <button id="logout" type="button">Log out</button>
+      </aside>
+      <main class="canvas">
+        <section id="preview" class="preview">
+          <p class="placeholder">Click generate and the newest code appears here.</p>
+          <img id="qr-image" alt="Newest QR code" hidden />
+          <div id="preview-links" class="links" hidden>
+            <a id="qr-image-link" href="" target="_blank" rel="noopener">View image</a>
+            <a id="customer-link" href="" target="_blank" rel="noopener">Open form</a>
+          </div>
+        </section>
+        <div class="section-head">
+          <h2>Generated codes</h2>
+          <span id="count">0 codes</span>
+        </div>
+        <div id="list" class="gallery"></div>
+      </main>
+    </div>
+    <script src="/auth.js"></script>
+    <script src="/generate.js"></script>
+  </body>
+</html>
